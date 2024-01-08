@@ -12,7 +12,7 @@ const Hero = () => {
                                 className="mb-5 text-4xl font-bold !leading-[1.208] sm:text-[42px] lg:text-[40px] xl:text-5xl"
                             >
                                 Discover Style,  <br />
-                                Unleash Comfort: Your Ultimate Shopping Destination"
+                                Unleash Comfort: Your Ultimate Shopping Destination
                             </h1>
                             <p
                                 className="mb-8 max-w-[480px] text-base text-body-color dark:text-dark-6"
