@@ -4,7 +4,7 @@ const Hero = () => {
     return (
         <div className="relative bg-white pb-[110px] pt-[120px] dark:bg-dark lg:pt-[150px]">
             <div className="container mx-auto">
-                <div className="-mx-4 flex flex-wrap items-center">
+                <div className="flex flex-wrap items-center">
                     <div className="w-full px-4 lg:w-5/12">
                         <div className="hero-content">
                             <h1

@@ -5,7 +5,7 @@ export default function Header() {
     return (
         <header className="sticky left-0 top-0 z-50 w-full bg-teal-500">
             <div className="container mx-auto">
-                <div className="relative -mx-4 flex items-center justify-between">
+                <div className="relative flex items-center justify-between">
                     <div className="w-60 max-w-full px-4">
                         <Link href="/" className="block w-full py-2">
                             <img
@@ -17,8 +17,8 @@ export default function Header() {
                     </div>
                     <div className="flex w-full items-center justify-between px-4">
                         <div>
-                            <nav className="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white px-6 py-5 shadow transition-all dark:bg-dark-2 lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:shadow-none xl:ml-11">
-                                <ul className="block lg:flex">
+                            <nav className="">
+                                <ul className="flex">
                                     {
                                         [
                                             { title: 'Home', link: '/' }
@@ -36,7 +36,7 @@ export default function Header() {
                                 </ul>
                             </nav>
                         </div>
-                        <div className="hidden justify-end pr-16 sm:flex lg:pr-0">
+                        <div className="flex">
                             {[
                                 { title: 'Sign in', link: 'sign-in' },
                                 { title: 'Sign up', link: 'sign-up' },
