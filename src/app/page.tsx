@@ -3,7 +3,9 @@
 import { Card } from '@/components/presentational/Card'
 import Hero from '@/components/presentational/Hero'
 import { IProduct } from '@/utilities/interfaces/product.interface'
+import { Fab } from '@mui/material'
 import { useState } from 'react'
+import AddIcon from '@mui/icons-material/Add';
 
 export default function Home() {
   const [products, _] = useState<Array<IProduct>>([
@@ -250,16 +252,31 @@ export default function Home() {
   ])
 
   return (
-    <main className="container mx-auto">
-      <Hero />
+    <main className="relative">
 
-      <div className='grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-cols-2 xl:grid-cols-4 xl:gap-x-8 px-4 py-2'>
-        {
-          products.map((item) => (
-            <Card key={item.id} product={item} />
-          ))
-        }
+      <div className='container mx-auto'>
+        <Hero />
+
+        <div className='grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-cols-2 xl:grid-cols-4 xl:gap-x-8 px-4 py-2'>
+          {
+            products.map((item) => (
+              <Card key={item.id} product={item} />
+            ))
+          }
+        </div>
       </div>
+
+      <Fab
+        sx={{
+          position: 'fixed',
+          bottom: 16,
+          right: 16
+        }}
+        color="primary"
+        aria-label="add"
+      >
+        <AddIcon />
+      </Fab>
 
     </main>
   )
