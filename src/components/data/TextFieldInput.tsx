@@ -6,7 +6,7 @@ import TextField from "@mui/material/TextField";
 
 interface Props {
     name: string;
-    label: string
+    label: string;
 }
 
 const TextFieldInput: React.FC<Props> = (props) => {
