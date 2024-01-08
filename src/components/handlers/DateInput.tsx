@@ -19,8 +19,19 @@ const DateInput: React.FC<Props> = (props) => {
             <Controller
                 name={name}
                 control={control}
-                render={({ field: { onChange, value } }) => (
-                    <DatePicker label={label} value={value} onChange={onChange} />
+                render={({
+                    field: { onChange, value },
+                    fieldState: { error },
+                }) => (
+                    <DatePicker disableFuture label={label} value={value} onChange={onChange}
+                        slotProps={{
+                            textField: {
+                                variant: 'outlined',
+                                error: !!error,
+                                helperText: error?.message,
+                            },
+                        }}
+                    />
                 )}
             />
         </LocalizationProvider>

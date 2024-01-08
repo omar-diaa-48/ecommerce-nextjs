@@ -1,6 +1,7 @@
 "use client"
-import DateInput from "@/components/data/DateInput";
-import TextFieldInput from "@/components/data/TextFieldInput";
+import Button from "@/components/handlers/Button";
+import DateInput from "@/components/handlers/DateInput";
+import TextFieldInput from "@/components/handlers/TextFieldInput";
 import AuthContainer from "@/components/presentational/AuthContainer";
 import { ISignUpForm } from "@/utilities/interfaces/auth.interface";
 import schema from "@/utilities/schemas/sign-up";
@@ -18,6 +19,8 @@ const SignUp = () => {
         resolver: yupResolver(schema),
     })
 
+    const { formState: { isValid } } = methods;
+
     return (
         <AuthContainer title="Create an account">
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -26,9 +29,9 @@ const SignUp = () => {
                         <TextFieldInput name="email" label="Email" />
                         <TextFieldInput name="firstName" label="First Name" />
                         <TextFieldInput name="password" label="Password" type="password" />
-                        {/* <DateInput name="birthDate" label="Birth date" /> */}
+                        <DateInput name="birthDate" label="Birth date" />
                         <div>
-                            <button type="submit" className="flex w-full justify-center rounded-md bg-teal-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+                            <Button disabled={!isValid} type="submit" />
                         </div>
                     </form>
                 </FormProvider>
