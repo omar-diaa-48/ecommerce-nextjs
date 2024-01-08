@@ -1,4 +1,4 @@
-"use-client"
+"use client"
 import TextFieldInput from "@/components/data/TextFieldInput";
 import AuthContainer from "@/components/presentational/AuthContainer";
 import { ISignInForm } from "@/utilities/interfaces/auth.interface";
@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
 import { FormProvider, useForm } from "react-hook-form";
 
-export default function SignIn() {
+const SignIn = () => {
 
     const methods = useForm<ISignInForm>({
         mode: "onChange",
@@ -38,3 +38,5 @@ export default function SignIn() {
         </AuthContainer>
     )
 }
+
+export default SignIn;

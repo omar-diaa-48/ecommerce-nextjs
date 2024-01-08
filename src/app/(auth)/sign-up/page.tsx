@@ -1,4 +1,4 @@
-"use-client"
+"use client"
 import DateInput from "@/components/data/DateInput";
 import TextFieldInput from "@/components/data/TextFieldInput";
 import AuthContainer from "@/components/presentational/AuthContainer";
@@ -8,7 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
 import { FormProvider, useForm } from "react-hook-form";
 
-export default function SignUp() {
+const SignUp = () => {
 
     const methods = useForm<ISignUpForm>({
         mode: "onChange",
@@ -41,3 +41,5 @@ export default function SignUp() {
         </AuthContainer>
     )
 }
+
+export default SignUp;
