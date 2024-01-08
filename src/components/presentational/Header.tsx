@@ -7,11 +7,11 @@ export default function Header() {
             <div className="container mx-auto">
                 <div className="relative -mx-4 flex items-center justify-between">
                     <div className="w-60 max-w-full px-4">
-                        <Link href="/" className="block w-full py-5">
+                        <Link href="/" className="block w-full py-2">
                             <img
                                 src="https://img.freepik.com/premium-vector/abstract-modern-ecommerce-logo-design-colorful-gradient-happy-shopping-logo-template_467913-990.jpg"
                                 alt="logo"
-                                className="block w-24"
+                                className="block w-16"
                             />
                         </Link>
                     </div>
