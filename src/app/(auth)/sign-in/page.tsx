@@ -2,11 +2,21 @@
 
 import TextFieldInput from "@/components/data/TextFieldInput";
 import AuthContainer from "@/components/presentational/AuthContainer";
+import { ISignInForm } from "@/utilities/interfaces/auth.interface";
+import schema from "@/utilities/schemas/sign-in";
+import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
 import { FormProvider, useForm } from "react-hook-form";
 
 export default function SignIn() {
-    const methods = useForm()
+
+    const methods = useForm<ISignInForm>({
+        mode: "onChange",
+        criteriaMode: "all",
+        shouldFocusError: true,
+        reValidateMode: "onChange",
+        resolver: yupResolver(schema),
+    })
 
     return (
         <AuthContainer title="Sign in to your account">
@@ -14,7 +24,7 @@ export default function SignIn() {
                 <FormProvider {...methods} >
                     <form className="space-y-6" action="#" method="POST">
                         <TextFieldInput name="email" label="Email" />
-                        <TextFieldInput name="password" label="Password" />
+                        <TextFieldInput name="password" label="Password" type="password" />
                         <div>
                             <button type="submit" className="flex w-full justify-center rounded-md bg-teal-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
                         </div>

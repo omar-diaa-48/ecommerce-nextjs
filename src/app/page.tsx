@@ -2,7 +2,7 @@
 
 import { Card } from '@/components/presentational/Card'
 import Hero from '@/components/presentational/Hero'
-import { IProduct } from '@/utilities/models/product.interface'
+import { IProduct } from '@/utilities/interfaces/product.interface'
 import { useState } from 'react'
 
 export default function Home() {

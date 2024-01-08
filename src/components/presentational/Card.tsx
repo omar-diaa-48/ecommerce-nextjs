@@ -1,5 +1,5 @@
 'use client'
-import { IProduct } from '@/utilities/models/product.interface';
+import { IProduct } from '@/utilities/interfaces/product.interface';
 import { useRouter } from 'next/navigation';
 import React from 'react'
 

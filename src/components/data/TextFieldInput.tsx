@@ -1,16 +1,17 @@
-'use client'
+"use-client"
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Controller, useFormContext } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 
 interface Props {
     name: string;
     label: string;
+    type?: 'text' | 'password';
 }
 
 const TextFieldInput: React.FC<Props> = (props) => {
-    const { name, label } = props;
+    const { name, label, type = 'text' } = props;
 
     const methods = useFormContext();
     const { control } = methods;
@@ -22,18 +23,23 @@ const TextFieldInput: React.FC<Props> = (props) => {
             render={({
                 field: { onChange, value },
                 fieldState: { error },
-            }) => (
-                <TextField
-                    helperText={error ? error.message : null}
-                    size="small"
-                    error={!!error}
-                    onChange={onChange}
-                    value={value}
-                    fullWidth
-                    label={label}
-                    variant="outlined"
-                />
-            )}
+            }) => {
+                console.log({ error, value });
+
+                return (
+                    <TextField
+                        helperText={error ? error.message : null}
+                        size="small"
+                        error={!!error}
+                        onChange={onChange}
+                        value={value}
+                        fullWidth
+                        variant="outlined"
+                        label={label}
+                        type={type}
+                    />
+                )
+            }}
         />
     )
 }
