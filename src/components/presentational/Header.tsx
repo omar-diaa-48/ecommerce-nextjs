@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -8,7 +9,7 @@ export default function Header() {
                 <div className="relative flex items-center justify-between">
                     <div className="w-60 max-w-full px-4">
                         <Link href="/" className="block w-full py-2">
-                            <img
+                            <Image
                                 src="https://img.freepik.com/premium-vector/abstract-modern-ecommerce-logo-design-colorful-gradient-happy-shopping-logo-template_467913-990.jpg"
                                 alt="logo"
                                 className="block w-16"

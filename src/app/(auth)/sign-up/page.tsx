@@ -1,5 +1,4 @@
 "use-client"
-
 import DateInput from "@/components/data/DateInput";
 import TextFieldInput from "@/components/data/TextFieldInput";
 import AuthContainer from "@/components/presentational/AuthContainer";
@@ -27,7 +26,7 @@ export default function SignUp() {
                         <TextFieldInput name="email" label="Email" />
                         <TextFieldInput name="firstName" label="First Name" />
                         <TextFieldInput name="password" label="Password" type="password" />
-                        <DateInput name="birthDate" label="Birth date" />
+                        {/* <DateInput name="birthDate" label="Birth date" /> */}
                         <div>
                             <button type="submit" className="flex w-full justify-center rounded-md bg-teal-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
                         </div>

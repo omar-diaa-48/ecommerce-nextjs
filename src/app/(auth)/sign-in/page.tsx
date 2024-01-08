@@ -1,5 +1,4 @@
-'use client'
-
+"use-client"
 import TextFieldInput from "@/components/data/TextFieldInput";
 import AuthContainer from "@/components/presentational/AuthContainer";
 import { ISignInForm } from "@/utilities/interfaces/auth.interface";
@@ -32,7 +31,7 @@ export default function SignIn() {
                 </FormProvider>
 
                 <p className="mt-10 text-center text-sm text-gray-500">
-                    <span>Don't have an account, </span>
+                    <span>Don&apos;t have an account, </span>
                     <Link href="sign-up" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Sign up</Link>
                 </p>
             </div>
