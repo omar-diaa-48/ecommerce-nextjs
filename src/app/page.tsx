@@ -1,5 +1,4 @@
 import Hero from '@/components/presentational/Hero'
-import CartIcon from '@/components/presentational/CartIcon'
 import Products from '@/components/presentational/Products'
 import { getProducts } from '@/utilities/data'
 

@@ -4,6 +4,7 @@ import './globals.css'
 import 'nprogress/nprogress.css';
 import Header from '@/components/presentational/Header'
 import CartIcon from '@/components/presentational/CartIcon'
+import StoreProvider from './StoreProvider';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,13 +22,15 @@ export default function RootLayout({
 }) {
 
   return (
-    <html lang="en">
+    <StoreProvider>
+      <html lang="en">
 
-      <body className={`${inter.className} relative`}>
-        <Header />
-        {children}
-        <CartIcon />
-      </body>
-    </html>
+        <body className={`${inter.className} relative`}>
+          <Header />
+          {children}
+          <CartIcon />
+        </body>
+      </html>
+    </StoreProvider>
   )
 }

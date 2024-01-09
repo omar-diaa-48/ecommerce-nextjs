@@ -1,8 +1,14 @@
+'use client'
+
 import { Fab } from '@mui/material'
 import React from 'react'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useAppSelector } from '@/utilities/store/hooks';
+import { RootState } from '@/utilities/store';
 
 function CartIcon() {
+    const { count } = useAppSelector((state: RootState) => state.cart)
+
     return (
         <Fab
             sx={{
@@ -14,7 +20,7 @@ function CartIcon() {
             className='bg-teal-500 hover:bg-teal-700'
         >
             <div className='absolute flex justify-center items-center w-6 h-6 rounded-full bg-teal-900 -left-2 -top-2'>
-                <p>1</p>
+                <p>{count}</p>
             </div>
             <ShoppingCartIcon className='text-white' />
         </Fab>
