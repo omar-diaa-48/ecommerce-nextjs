@@ -7,7 +7,7 @@ import { useAppSelector } from '@/utilities/store/hooks';
 import { RootState } from '@/utilities/store';
 
 function CartIcon() {
-    const { count } = useAppSelector((state: RootState) => state.cart)
+    const { items } = useAppSelector((state: RootState) => state.cart)
 
     return (
         <Fab
@@ -19,9 +19,11 @@ function CartIcon() {
             aria-label="add"
             className='bg-teal-500 hover:bg-teal-700'
         >
-            <div className='absolute flex justify-center items-center w-6 h-6 rounded-full bg-teal-900 -left-2 -top-2'>
-                <p>{count}</p>
-            </div>
+            {items.length > 0 && (
+                <div className='absolute flex justify-center items-center w-6 h-6 rounded-full bg-teal-900 -left-2 -top-2'>
+                    <p className='text-white'>{items.length}</p>
+                </div>
+            )}
             <ShoppingCartIcon className='text-white' />
         </Fab>
     )

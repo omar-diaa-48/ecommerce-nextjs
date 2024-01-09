@@ -2,19 +2,22 @@ import { IProduct } from '@/utilities/interfaces/product.interface';
 import { createAction, createReducer } from '@reduxjs/toolkit';
 
 interface CartState {
-    items: Array<IProduct>;
-    count: number;
+    items: Array<IProduct>
 }
 
 const addItemToCart = createAction<IProduct>('cart/addItemToCart')
+const clearCart = createAction<IProduct>('cart/clearCart')
 
-const initialState = { items: [], count: 5 } as CartState;
+const initialState = { items: [] } as CartState;
 
 const cartReducer = createReducer(initialState, (builder) => {
     builder
         .addCase(addItemToCart, (state, action) => ({
             ...state,
             items: [...state.items, action.payload]
+        }))
+        .addCase(clearCart, () => ({
+            ...initialState
         }))
 })
 
