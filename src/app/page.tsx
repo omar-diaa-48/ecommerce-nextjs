@@ -8,14 +8,12 @@ export default async function Home() {
   const products = await getProducts();
 
   return (
-    <main className="relative">
+    <main>
 
       <div className='container mx-auto'>
         <Hero />
         <Products products={products} />
       </div>
-
-      <CartIcon />
 
     </main>
   )

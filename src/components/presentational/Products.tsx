@@ -8,10 +8,10 @@ interface Props {
 
 const Products: React.FC<Props> = ({ products }) => {
     return (
-        <div className='grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-cols-2 xl:grid-cols-4 xl:gap-x-8 px-4 py-2'>
+        <div className='columns-1 gap-5 sm:columns-2 sm:gap-8 md:columns-3 lg:columns-4 my-8'>
             {
-                products.map((item) => (
-                    <Card key={item.id} product={item} />
+                products.map((item, index) => (
+                    <Card key={item.id} size={index % 2 === 0 ? 'md' : 'lg'} product={item} />
                 ))
             }
         </div>
