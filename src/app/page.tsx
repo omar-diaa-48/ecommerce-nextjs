@@ -1,5 +1,3 @@
-"use server"
-
 import Hero from '@/components/presentational/Hero'
 import CartIcon from '@/components/presentational/CartIcon'
 import Products from '@/components/presentational/Products'

@@ -1,6 +1,6 @@
-"use server"
 import { getProduct } from "@/utilities/data";
-import Image from "next/image";
+
+export const revalidate = 60
 
 export default async function ProductDetails({
     params: { id },
@@ -42,10 +42,11 @@ export default async function ProductDetails({
                         <div className="mb-4">
                             <span className="font-bold text-gray-700">Select Color:</span>
                             <div className="flex items-center mt-2">
-                                <button className="w-6 h-6 rounded-full bg-gray-800 dark:bg-gray-200 mr-2"></button>
-                                <button className="w-6 h-6 rounded-full bg-red-500 dark:bg-red-700 mr-2"></button>
-                                <button className="w-6 h-6 rounded-full bg-blue-500 dark:bg-blue-700 mr-2"></button>
-                                <button className="w-6 h-6 rounded-full bg-yellow-500 dark:bg-yellow-700 mr-2"></button>
+                                {
+                                    ['gray', 'red', 'blue', 'yellow'].map((color) => (
+                                        <button key={color} title={color} className={`w-6 h-6 rounded-full bg-${color}-500 mr-2`}></button>
+                                    ))
+                                }
                             </div>
                         </div>
                         <div className="mb-4">
