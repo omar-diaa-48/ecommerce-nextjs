@@ -21,23 +21,21 @@ const TextFieldInput: React.FC<Props> = (props) => {
             render={({
                 field: { onChange, value },
                 fieldState: { error },
-            }) => {
-                console.log({ error, value });
-
-                return (
-                    <TextField
-                        helperText={error ? error.message : null}
-                        size="small"
-                        error={!!error}
-                        onChange={onChange}
-                        value={value}
-                        fullWidth
-                        variant="outlined"
-                        label={label}
-                        type={type}
-                    />
-                )
-            }}
+            }) => (
+                <TextField
+                    helperText={error ? error.message : null}
+                    size="small"
+                    error={!!error}
+                    onChange={onChange}
+                    value={value}
+                    fullWidth
+                    variant="outlined"
+                    label={label}
+                    type={type}
+                    autoComplete='off'
+                />
+            )
+            }
         />
     )
 }
