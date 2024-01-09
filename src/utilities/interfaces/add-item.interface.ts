@@ -1,7 +1,7 @@
 import { ColorEnum, SizeEnum } from "../enums";
 
-export interface IItem {
-    productId: number;
+export interface IAddItem {
+    productId: string;
     color: ColorEnum;
     size: SizeEnum;
 }
