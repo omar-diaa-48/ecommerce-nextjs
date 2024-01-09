@@ -1,12 +1,23 @@
+'use client'
 import Image from 'next/image'
 import React from 'react'
+import { motion } from "framer-motion"
 
 const Hero = () => {
     return (
         <div className="relative bg-white pb-[110px] pt-[120px] dark:bg-dark lg:pt-[150px]">
             <div className="container mx-auto">
                 <div className="flex flex-wrap items-center">
-                    <div className="w-full px-4 lg:w-5/12">
+                    <motion.div
+                        initial={{
+                            x: -1000
+                        }}
+                        animate={{
+                            x: 0,
+                            transition: { duration: 1 }
+                        }}
+                        className="w-full px-4 lg:w-5/12"
+                    >
                         <div className="hero-content">
                             <h1
                                 className="mb-5 text-4xl font-bold !leading-[1.208] sm:text-[42px] lg:text-[40px] xl:text-5xl"
@@ -24,9 +35,18 @@ const Hero = () => {
                                 Elevate your everyday with E-shop – Where Every Purchase is a Statement
                             </p>
                         </div>
-                    </div>
+                    </motion.div>
                     <div className="hidden px-4 lg:block lg:w-1/12"></div>
-                    <div className="w-full px-4 lg:w-6/12">
+                    <motion.div
+                        initial={{
+                            x: 1000
+                        }}
+                        animate={{
+                            x: 0,
+                            transition: { duration: 1 }
+                        }}
+                        className="w-full px-4 lg:w-6/12"
+                    >
                         <div className="lg:ml-auto lg:text-right">
                             <div className="relative z-10 inline-block pt-11 lg:pt-0">
                                 <img
@@ -71,7 +91,7 @@ const Hero = () => {
                                 </span>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </div>

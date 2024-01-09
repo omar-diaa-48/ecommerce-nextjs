@@ -3,6 +3,7 @@ import { IProduct } from '@/utilities/interfaces/product.interface';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react'
+import { motion } from "framer-motion"
 
 interface Props {
     product: IProduct
@@ -17,7 +18,11 @@ export const Card: React.FC<Props> = (props) => {
     }
 
     return (
-        <div onClick={handleNavigate} className="relative max-w-full bg-white shadow-md rounded-3xl p-2 mx-1 my-3 cursor-pointer">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 1 } }}
+            onClick={handleNavigate} className="relative max-w-full bg-white shadow-md rounded-3xl p-2 mx-1 my-3 cursor-pointer"
+        >
             <div className="overflow-x-hidden rounded-2xl relative">
                 <img className="h-40 rounded-2xl w-full object-cover" src={image} alt={`${title} product`} />
                 <p className="absolute right-2 top-2 bg-white rounded-full p-2 cursor-pointer group">
@@ -32,6 +37,6 @@ export const Card: React.FC<Props> = (props) => {
                     <p className="text-md text-gray-800 mt-0">{price}</p>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
