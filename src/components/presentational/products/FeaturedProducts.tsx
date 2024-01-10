@@ -1,4 +1,8 @@
+'use client'
+
 import { IProduct } from '@/utilities/interfaces/product.interface'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 interface Props {
@@ -6,6 +10,12 @@ interface Props {
 }
 
 export const FeaturedProducts: React.FC<Props> = ({ products }) => {
+    const router = useRouter();
+
+    const handleNavigate = (productId: string) => {
+        router.push(`/products/${productId}`)
+    }
+
     return (
         <section className="bg-white py-12 text-gray-700 sm:py-16 lg:py-20">
             <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
@@ -19,7 +29,7 @@ export const FeaturedProducts: React.FC<Props> = ({ products }) => {
 
                 <div className="mt-10 grid grid-cols-2 gap-6 lg:mt-16 lg:grid-cols-4 lg:gap-4">
                     {products.map((product) => (
-                        <article key={product.id} className="relative">
+                        <div onClick={() => handleNavigate(product.id)} key={product.id} className="relative">
                             <div className="aspect-square overflow-hidden">
                                 <img className="group-hover:scale-125 h-full w-full object-cover transition-all duration-300" src={product.images[0]} alt="" />
                             </div>
@@ -58,7 +68,7 @@ export const FeaturedProducts: React.FC<Props> = ({ products }) => {
                                     <p className="text-xs font-normal sm:text-sm md:text-base">${product.price}</p>
                                 </div>
                             </div>
-                        </article>
+                        </div>
                     ))}
                 </div>
             </div>

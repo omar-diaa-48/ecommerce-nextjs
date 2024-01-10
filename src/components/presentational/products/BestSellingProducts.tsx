@@ -1,6 +1,8 @@
 'use client'
 import { mapArrayToArraysOfDifferentLengths } from '@/utilities/helpers/mappers'
 import { IProduct } from '@/utilities/interfaces/product.interface'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 interface Props {
@@ -8,6 +10,11 @@ interface Props {
 }
 
 export const BestSellingProducts: React.FC<Props> = ({ products }) => {
+    const router = useRouter();
+
+    const handleNavigate = (productId: string) => {
+        router.push(`/products/${productId}`)
+    }
 
     const [mappedProducts, setMappedProducts] = useState<Array<Array<IProduct>>>([])
 
@@ -24,14 +31,14 @@ export const BestSellingProducts: React.FC<Props> = ({ products }) => {
                     {mappedProducts.map((group, index) => (
                         <div key={index} className={`mt-8 grid grid-cols-1 gap-6 md:mt-10 md:grid-cols-${group.length} lg:gap-8`}>
                             {group.map((product) => (
-                                <article key={product.id} className="bg-slate-50 p-8">
+                                <div key={product.id} onClick={() => handleNavigate(product.id)} className="bg-slate-50 p-8">
                                     <div className="">
                                         <h2 className="text-xl text-gray-600">{product.title}</h2>
                                     </div>
                                     <div className="mt-8 flex items-center justify-center md:mt-24">
                                         <img className="" src={product.images[0]} alt="" />
                                     </div>
-                                </article>
+                                </div>
                             ))}
                         </div>
                     ))}

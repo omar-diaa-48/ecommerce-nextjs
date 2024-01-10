@@ -7,8 +7,11 @@ import schema from '@/utilities/schemas/add-item'
 import { useAppDispatch } from '@/utilities/store/hooks'
 import { addItemToCart } from '@/utilities/store/slices/cart'
 import { yupResolver } from '@hookform/resolvers/yup'
-import React from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 
 interface Props {
     product: IProduct
@@ -42,13 +45,32 @@ export const Product: React.FC<Props> = ({ product }) => {
     const selectedColor = watch('color');
     const selectedSize = watch('size');
 
+    const [images] = useState<Array<string>>(product.images);
+    const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+
+    const handleChangeImage = (index: number) => {
+        const currentIndex = index > images.length - 1 ? 0 : index < 0 ? images.length - 1 : index;
+        setCurrentImageIndex(currentIndex);
+    }
+
     return (
         <div className="py-8">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row">
                     <div className="md:flex-1 px-4">
-                        <div className="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                            <img className="w-full h-full object-cover" src={product.images[0]} alt={product.title} />
+                        <div className="relative h-[460px] w-full rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
+                            <NavigateBeforeIcon onClick={() => handleChangeImage(currentImageIndex - 1)} className='absolute top-1/2 right-full cursor-pointer' />
+                            <AnimatePresence>
+                                <motion.img
+                                    key={images[currentImageIndex]}
+                                    src={images[currentImageIndex]}
+                                    initial={{ x: 300, opacity: 0 }}
+                                    animate={{ x: 0, opacity: 1, transition: { duration: 0.5 } }}
+                                    alt={product.title}
+                                    className="w-full h-full object-cover"
+                                />
+                            </AnimatePresence>
+                            <NavigateNextIcon onClick={() => handleChangeImage(currentImageIndex + 1)} className='absolute top-1/2 left-full' />
                         </div>
                         <div className="flex -mx-2 mb-4">
                             <div className="w-1/2 px-2">
