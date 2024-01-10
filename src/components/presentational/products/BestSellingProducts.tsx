@@ -27,7 +27,6 @@ export const BestSellingProducts: React.FC<Props> = ({ products }) => {
                                 <article key={product.id} className="bg-slate-50 p-8">
                                     <div className="">
                                         <h2 className="text-xl text-gray-600">{product.title}</h2>
-                                        <p className="mt-2 text-xl font-semibold text-gray-800">{product.description}</p>
                                     </div>
                                     <div className="mt-8 flex items-center justify-center md:mt-24">
                                         <img className="" src={product.images[0]} alt="" />
