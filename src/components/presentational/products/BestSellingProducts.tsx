@@ -31,7 +31,7 @@ export const BestSellingProducts: React.FC<Props> = ({ products }) => {
                     {mappedProducts.map((group, index) => (
                         <div key={index} className={`mt-8 grid grid-cols-1 gap-6 md:mt-10 md:grid-cols-${group.length} lg:gap-8`}>
                             {group.map((product) => (
-                                <div key={product.id} onClick={() => handleNavigate(product.id)} className="bg-slate-50 p-8">
+                                <div key={product.id} onClick={() => handleNavigate(product.id)} className="bg-slate-50 p-8 cursor-pointer">
                                     <div className="">
                                         <h2 className="text-xl text-gray-600">{product.title}</h2>
                                     </div>
