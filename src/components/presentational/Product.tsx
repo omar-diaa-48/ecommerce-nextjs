@@ -4,8 +4,10 @@ import { ColorEnum, SizeEnum } from '@/utilities/enums'
 import { IAddItem } from '@/utilities/interfaces/add-item.interface'
 import { IProduct } from '@/utilities/interfaces/product.interface'
 import schema from '@/utilities/schemas/add-item'
+import { useAppDispatch } from '@/utilities/store/hooks'
+import { addItemToCart } from '@/utilities/store/slices/cart'
 import { yupResolver } from '@hookform/resolvers/yup'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form'
 
 interface Props {
@@ -13,6 +15,7 @@ interface Props {
 }
 
 export const Product: React.FC<Props> = ({ product }) => {
+    const dispatch = useAppDispatch();
 
     const methods = useForm<IAddItem>({
         mode: "onChange",
@@ -20,12 +23,20 @@ export const Product: React.FC<Props> = ({ product }) => {
         shouldFocusError: true,
         reValidateMode: "onChange",
         resolver: yupResolver(schema),
+        defaultValues: {
+            productId: product.id,
+            size: SizeEnum.MEDIUM
+        }
     })
 
-    const { setValue, watch } = methods;
+    const { setValue, watch, formState } = methods;
 
     const handleUserChoice = (field: 'size' | 'color', choice: SizeEnum | ColorEnum) => {
-        setValue(field, choice)
+        setValue(field, choice, { shouldDirty: true, shouldTouch: true, shouldValidate: true })
+    }
+
+    const handleAddItemToCart = () => {
+        dispatch(addItemToCart(product))
     }
 
     const selectedColor = watch('color');
@@ -41,7 +52,7 @@ export const Product: React.FC<Props> = ({ product }) => {
                         </div>
                         <div className="flex -mx-2 mb-4">
                             <div className="w-1/2 px-2">
-                                <button className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">Add to Cart</button>
+                                <button onClick={handleAddItemToCart} disabled={!formState.isValid} className="w-full bg-gray-900 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 disabled:cursor-not-allowed">Add to Cart</button>
                             </div>
                         </div>
                     </div>
@@ -70,11 +81,9 @@ export const Product: React.FC<Props> = ({ product }) => {
                                         { title: 'blue', color: 'bg-blue-500' },
                                         { title: 'yellow', color: 'bg-yellow-500' }
                                     ].map((color) => (
-                                        <div onClick={() => handleUserChoice('color', color.title as ColorEnum)} key={color.title} title={color.title} className={`cursor-pointer w-6 h-6 rounded-full ${color.color} mr-2`}></div>
+                                        <div onClick={() => handleUserChoice('color', color.title as ColorEnum)} key={color.title} title={color.title} className={`cursor-pointer w-6 h-6 rounded-full mr-2 ${color.color} ${selectedColor === color.title ? 'border-black border-2 p-2' : ''}`}></div>
                                     ))
                                 }
-
-                                {selectedColor && <span>{selectedColor}</span>}
                             </div>
                         </div>
                         <div className="mb-4">
@@ -82,11 +91,9 @@ export const Product: React.FC<Props> = ({ product }) => {
                             <div className="flex items-center mt-2">
                                 {
                                     ['s', 'md', 'l', 'xl', 'xxl'].map((size) => (
-                                        <div onClick={() => handleUserChoice('size', size as SizeEnum)} key={size} className="cursor-pointer bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">{size}</div>
+                                        <div onClick={() => handleUserChoice('size', size as SizeEnum)} key={size} className={`cursor-pointer bg-gray-300 text-gray-700 py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 ${selectedSize === size ? 'border-black border-2 p-2' : ''}`}>{size}</div>
                                     ))
                                 }
-
-                                {selectedSize && <span>{selectedSize}</span>}
                             </div>
                         </div>
                         <div>

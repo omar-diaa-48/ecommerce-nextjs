@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect } from 'react'
 import { Controller, useFormContext } from "react-hook-form";
 import TextField from "@mui/material/TextField";
@@ -19,20 +20,20 @@ const TextFieldInput: React.FC<Props> = (props) => {
             name={name}
             control={control}
             render={({
-                field: { onChange, value },
+                field,
                 fieldState: { error },
             }) => (
                 <TextField
                     helperText={error ? error.message : null}
                     size="small"
                     error={!!error}
-                    onChange={onChange}
-                    value={value}
                     fullWidth
                     variant="outlined"
                     label={label}
                     type={type}
                     autoComplete='off'
+                    defaultValue=""
+                    {...field}
                 />
             )
             }

@@ -1,3 +1,4 @@
+'use client'
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -23,7 +24,7 @@ const DateInput: React.FC<Props> = (props) => {
                     field: { onChange, value },
                     fieldState: { error },
                 }) => (
-                    <DatePicker disableFuture label={label} value={value} onChange={onChange}
+                    <DatePicker disableFuture label={label} value={value} onChange={onChange} defaultValue={new Date()}
                         slotProps={{
                             textField: {
                                 variant: 'outlined',

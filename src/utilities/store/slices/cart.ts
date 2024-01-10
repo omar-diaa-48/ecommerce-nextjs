@@ -5,8 +5,8 @@ interface CartState {
     items: Array<IProduct>
 }
 
-const addItemToCart = createAction<IProduct>('cart/addItemToCart')
-const clearCart = createAction<IProduct>('cart/clearCart')
+export const addItemToCart = createAction<IProduct>('cart/addItemToCart')
+export const clearCart = createAction<void>('cart/clearCart')
 
 const initialState = { items: [] } as CartState;
 

@@ -38,8 +38,8 @@ export default function Header() {
                         </div>
                         <div className="flex">
                             {[
-                                { title: 'Sign in', link: 'sign-in' },
-                                { title: 'Sign up', link: 'sign-up' },
+                                { title: 'Sign in', link: '/sign-in' },
+                                { title: 'Sign up', link: '/sign-up' },
                             ].map((item) => (
                                 <Link
                                     key={item.title}
