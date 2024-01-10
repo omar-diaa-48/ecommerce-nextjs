@@ -70,7 +70,7 @@ export const Product: React.FC<Props> = ({ product }) => {
                                     className="w-full h-full object-cover"
                                 />
                             </AnimatePresence>
-                            <NavigateNextIcon onClick={() => handleChangeImage(currentImageIndex + 1)} className='absolute top-1/2 left-full' />
+                            <NavigateNextIcon onClick={() => handleChangeImage(currentImageIndex + 1)} className='absolute top-1/2 left-full cursor-pointer' />
                         </div>
                         <div className="flex -mx-2 mb-4">
                             <div className="w-1/2 px-2">
