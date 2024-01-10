@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 
 const Hero = () => {
     return (
-        <div className="relative bg-white pb-[110px] pt-[120px] dark:bg-dark lg:pt-[150px]">
+        <div className="relative bg-white pb-[110px] pt-12 md:pt-[120px] dark:bg-dark lg:pt-[150px]">
             <div className="container mx-auto">
                 <div className="flex flex-wrap items-center">
                     <motion.div

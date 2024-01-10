@@ -1,0 +1,44 @@
+'use client'
+import { mapArrayToArraysOfDifferentLengths } from '@/utilities/helpers/mappers'
+import { IProduct } from '@/utilities/interfaces/product.interface'
+import React, { useEffect, useState } from 'react'
+
+interface Props {
+    products: Array<IProduct>
+}
+
+export const BestSellingProducts: React.FC<Props> = ({ products }) => {
+
+    const [mappedProducts, setMappedProducts] = useState<Array<Array<IProduct>>>([])
+
+    useEffect(() => {
+        setMappedProducts(mapArrayToArraysOfDifferentLengths(products))
+    }, [products])
+
+    return (
+        <section className="">
+            <div className="mx-auto max-w-md sm:max-w-lg md:max-w-screen-xl">
+                <div className="px-4 py-8 md:px-6 md:py-12 lg:px-20">
+                    <h1 className="text-center text-3xl font-semibold text-gray-800 lg:text-4xl">Our Best Selling Collection</h1>
+
+                    {mappedProducts.map((group, index) => (
+                        <div key={index} className={`mt-8 grid grid-cols-1 gap-6 md:mt-10 md:grid-cols-${group.length} lg:gap-8`}>
+                            {group.map((product) => (
+                                <article key={product.id} className="bg-slate-50 p-8">
+                                    <div className="">
+                                        <h2 className="text-xl text-gray-600">{product.title}</h2>
+                                        <p className="mt-2 text-xl font-semibold text-gray-800">{product.description}</p>
+                                    </div>
+                                    <div className="mt-8 flex items-center justify-center md:mt-24">
+                                        <img className="" src={product.images[0]} alt="" />
+                                    </div>
+                                </article>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+    )
+}

@@ -6,7 +6,7 @@ export default function Header() {
         <header className="sticky left-0 top-0 z-50 w-full bg-teal-500">
             <div className="container mx-auto">
                 <div className="relative flex items-center justify-between">
-                    <div className="w-60 max-w-full px-4">
+                    <div className="md:w-60 max-w-full px-4">
                         <Link href="/" className="block w-full py-2">
                             <img
                                 src="https://img.freepik.com/premium-vector/abstract-modern-ecommerce-logo-design-colorful-gradient-happy-shopping-logo-template_467913-990.jpg"
@@ -44,7 +44,7 @@ export default function Header() {
                                 <Link
                                     key={item.title}
                                     href={item.link}
-                                    className="px-7 py-3 text-base font-medium text-dark hover:text-primary dark:text-white"
+                                    className="px-2 md:px-7 py-3 text-sm md:text-base font-medium text-dark hover:text-primary dark:text-white"
                                 >
                                     {item.title}
                                 </Link>

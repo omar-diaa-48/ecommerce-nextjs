@@ -1,4 +1,4 @@
-import { Product } from "@/components/presentational/Product";
+import { Product } from "@/components/presentational/products/Product";
 import { getProduct } from "@/utilities/data";
 
 export const revalidate = 60

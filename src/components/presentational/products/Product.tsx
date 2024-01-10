@@ -48,7 +48,7 @@ export const Product: React.FC<Props> = ({ product }) => {
                 <div className="flex flex-col md:flex-row">
                     <div className="md:flex-1 px-4">
                         <div className="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                            <img className="w-full h-full object-cover" src={product.image} alt={product.title} />
+                            <img className="w-full h-full object-cover" src={product.images[0]} alt={product.title} />
                         </div>
                         <div className="flex -mx-2 mb-4">
                             <div className="w-1/2 px-2">

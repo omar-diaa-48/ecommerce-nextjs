@@ -1,12 +1,12 @@
 import React from 'react'
-import { Card } from './Card'
+import { Card } from '../Card'
 import { IProduct } from '@/utilities/interfaces/product.interface'
 
 interface Props {
     products: Array<IProduct>
 }
 
-const Products: React.FC<Props> = ({ products }) => {
+const CategoryProducts: React.FC<Props> = ({ products }) => {
     return (
         <div className='columns-1 gap-5 sm:columns-2 sm:gap-8 md:columns-3 lg:columns-4 my-8'>
             {
@@ -18,4 +18,4 @@ const Products: React.FC<Props> = ({ products }) => {
     )
 }
 
-export default Products;
+export default CategoryProducts;
