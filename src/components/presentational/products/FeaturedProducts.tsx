@@ -1,6 +1,7 @@
 'use client'
 
 import { IProduct } from '@/utilities/interfaces/product.interface'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React from 'react'
@@ -30,8 +31,8 @@ export const FeaturedProducts: React.FC<Props> = ({ products }) => {
                 <div className="mt-10 grid grid-cols-2 gap-6 lg:mt-16 lg:grid-cols-4 lg:gap-4">
                     {products.map((product) => (
                         <div onClick={() => handleNavigate(product.id)} key={product.id} className="relative cursor-pointer">
-                            <div className="aspect-square overflow-hidden">
-                                <img className="group-hover:scale-125 h-full w-full object-cover transition-all duration-300" src={product.images[0]} alt="" />
+                            <div className="aspect-square overflow-hidden relative">
+                                <Image fill className="group-hover:scale-125 h-full w-full object-cover transition-all duration-300" src={product.images[0]} alt="" />
                             </div>
                             <div className="absolute top-0 m-1 rounded-full bg-white">
                                 <p className="text-[10px] rounded-full bg-black p-1 font-bold uppercase tracking-wide text-white sm:px-3 sm:py-1">Sale</p>

@@ -1,6 +1,7 @@
 'use client'
 import { mapArrayToArraysOfDifferentLengths } from '@/utilities/helpers/mappers'
 import { IProduct } from '@/utilities/interfaces/product.interface'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
@@ -37,8 +38,8 @@ export const BestSellingProducts: React.FC<Props> = ({ products }) => {
                                         <div className="">
                                             <h2 className="text-xl text-gray-600">{product.title}</h2>
                                         </div>
-                                        <div className="mt-8 flex items-center justify-center md:mt-24">
-                                            <img className="" src={product.images[0]} alt="" />
+                                        <div className="mt-8 flex relative overflow-hidden min-h-80 items-center justify-center md:mt-24">
+                                            <Image fill src={product.images[0]} alt="" />
                                         </div>
                                     </div>
                                 ))}

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 export default function NotFound() {
@@ -16,12 +17,12 @@ export default function NotFound() {
                         </div>
                     </div>
                     <div>
-                        <img src="https://i.ibb.co/G9DC8S0/404-2.png" />
+                        <Image width={450} height={450} alt='' src="https://i.ibb.co/G9DC8S0/404-2.png" />
                     </div>
                 </div>
             </div>
             <div>
-                <img src="https://i.ibb.co/ck1SGFJ/Group.png" />
+                <Image width={450} height={450} alt='' src="https://i.ibb.co/ck1SGFJ/Group.png" />
             </div>
         </div>
     )
