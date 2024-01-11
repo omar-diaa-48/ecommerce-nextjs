@@ -24,7 +24,7 @@ const DateInput: React.FC<Props> = (props) => {
                     field: { onChange, value },
                     fieldState: { error },
                 }) => (
-                    <DatePicker disableFuture label={label} value={value} onChange={onChange} defaultValue={new Date()}
+                    <DatePicker disableFuture label={label} value={value} onChange={onChange}
                         slotProps={{
                             textField: {
                                 variant: 'outlined',

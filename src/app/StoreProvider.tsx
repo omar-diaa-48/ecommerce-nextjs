@@ -2,6 +2,7 @@
 import { useRef } from 'react'
 import { Provider } from 'react-redux'
 import { makeStore, AppStore } from '@/utilities/store'
+import { LOCAL_STORAGE_PERSIST_KEY } from '@/utilities/constants'
 
 export default function StoreProvider({
     children,
@@ -14,7 +15,7 @@ export default function StoreProvider({
         storeRef.current = makeStore()
 
         storeRef.current.subscribe(() => {
-            localStorage.setItem('reduxState', JSON.stringify(storeRef.current?.getState()))
+            localStorage.setItem(LOCAL_STORAGE_PERSIST_KEY, JSON.stringify(storeRef.current?.getState()))
         })
     }
 

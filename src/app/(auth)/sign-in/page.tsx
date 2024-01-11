@@ -16,9 +16,13 @@ const SignIn = () => {
         shouldFocusError: true,
         reValidateMode: "onChange",
         resolver: yupResolver(schema),
+        defaultValues: {
+            email: "",
+            password: ""
+        }
     })
 
-    const { formState: { isValid } } = methods;
+    const { formState } = methods;
 
     return (
         <AuthContainer title="Sign in to your account">
@@ -28,7 +32,7 @@ const SignIn = () => {
                         <TextFieldInput name="email" label="Email" />
                         <TextFieldInput name="password" label="Password" type="password" />
                         <div>
-                            <Button disabled={!isValid} type="submit" />
+                            <Button disabled={!formState.isValid} type="submit" />
                         </div>
                     </form>
                 </FormProvider>

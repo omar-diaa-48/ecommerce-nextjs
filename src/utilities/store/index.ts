@@ -1,9 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { LOCAL_STORAGE_PERSIST_KEY } from '../constants';
 import cartReducer, { initialState as cartInitialState } from './slices/cart';
 
 export const makeStore = () => {
-    const persistedState = typeof window !== 'undefined' && localStorage.getItem('reduxState')
-        ? JSON.parse(localStorage?.getItem('reduxState')!)
+    const persistedState = typeof window !== 'undefined' && localStorage.getItem(LOCAL_STORAGE_PERSIST_KEY)
+        ? JSON.parse(localStorage?.getItem(LOCAL_STORAGE_PERSIST_KEY)!)
         : {
             cart: cartInitialState,
         }

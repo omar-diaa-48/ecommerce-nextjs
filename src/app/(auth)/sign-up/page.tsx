@@ -17,9 +17,15 @@ const SignUp = () => {
         shouldFocusError: true,
         reValidateMode: "onChange",
         resolver: yupResolver(schema),
+        defaultValues: {
+            email: "",
+            password: "",
+            firstName: "",
+            birthDate: new Date()
+        }
     })
 
-    const { formState: { isValid } } = methods;
+    const { formState } = methods;
 
     return (
         <AuthContainer title="Create an account">
@@ -31,7 +37,7 @@ const SignUp = () => {
                         <TextFieldInput name="password" label="Password" type="password" />
                         <DateInput name="birthDate" label="Birth date" />
                         <div>
-                            <Button disabled={!isValid} type="submit" />
+                            <Button disabled={!formState.isValid} type="submit" />
                         </div>
                     </form>
                 </FormProvider>
