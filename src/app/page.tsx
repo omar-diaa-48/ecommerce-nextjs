@@ -1,6 +1,5 @@
 import Hero from '@/components/presentational/Hero'
 import { BestSellingProducts } from '@/components/presentational/products/BestSellingProducts';
-import CategoryProducts from '@/components/presentational/products/CategoryProducts'
 import { FeaturedProducts } from '@/components/presentational/products/FeaturedProducts';
 import { getProducts } from '@/utilities/data'
 import { mapToPagination } from '@/utilities/helpers/mappers';
