@@ -22,13 +22,17 @@ const SignIn = () => {
         }
     })
 
-    const { formState } = methods;
+    const { formState, handleSubmit } = methods;
+
+    const handleUserSubmit = (form: ISignInForm) => {
+        console.log(form);
+    }
 
     return (
         <AuthContainer title="Sign in to your account">
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                 <FormProvider {...methods} >
-                    <form className="space-y-6" action="#" method="POST">
+                    <form className="space-y-6" onSubmit={handleSubmit(handleUserSubmit)}>
                         <TextFieldInput name="email" label="Email" />
                         <TextFieldInput name="password" label="Password" type="password" />
                         <div>
