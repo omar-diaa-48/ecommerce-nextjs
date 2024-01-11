@@ -1,42 +1,34 @@
+'use client'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function Header() {
+    const [animateHeader, setAnimateHeader] = useState(false);
+    useEffect(() => {
+        const listener = () => {
+            if (window.scrollY > 140) {
+                setAnimateHeader(true);
+            } else setAnimateHeader(false);
+        };
+        window.addEventListener("scroll", listener);
+
+        return () => {
+            window.removeEventListener("scroll", listener);
+        };
+    }, []);
+
     return (
-        <header className="sticky left-0 top-0 z-50 w-full bg-teal-500">
-            <div className="container mx-auto">
-                <div className="relative flex items-center justify-between">
-                    <div className="md:w-60 max-w-full px-4">
-                        <Link href="/" className="block w-full py-2">
-                            <img
-                                src="https://img.freepik.com/premium-vector/abstract-modern-ecommerce-logo-design-colorful-gradient-happy-shopping-logo-template_467913-990.jpg"
-                                alt="logo"
-                                className="block w-16"
-                            />
-                        </Link>
-                    </div>
-                    <div className="flex w-full items-center justify-between px-4">
-                        <div>
-                            <nav className="">
-                                <ul className="flex">
-                                    {
-                                        [
-                                            { title: 'Home', link: '/' }
-                                        ].map((item) => (
-                                            <li key={item.title}>
-                                                <Link
-                                                    href={item.link}
-                                                    className="flex py-2 text-base font-medium text-dark hover:text-primary dark:text-white lg:ml-10 lg:inline-flex"
-                                                >
-                                                    {item.title}
-                                                </Link>
-                                            </li>
-                                        ))
-                                    }
-                                </ul>
-                            </nav>
-                        </div>
-                        <div className="flex">
+        <header className={`w-full backdrop-filter backdrop-blur-lg bg-white/50 fixed z-20 transition ease-in-out duration-500 ${animateHeader && "shadow-xl"}`}>
+            <div className="max-w-7xl mx-auto ">
+                <div className={`flex max-w-screen-xl py-10 ${animateHeader && "py-5"} mx-auto items-center justify-between px-8 transition ease-in-out duration-500`}>
+                    <Link
+                        href="/"
+                        className="text-xl font-bold tracking-tighter text-indigo-400 pr-8"
+                    >
+                        E-commerce app
+                    </Link>
+                    <nav>
+                        <ul className="flex items-center justify-start">
                             {[
                                 { title: 'Sign in', link: '/sign-in' },
                                 { title: 'Sign up', link: '/sign-up' },
@@ -44,13 +36,13 @@ export default function Header() {
                                 <Link
                                     key={item.title}
                                     href={item.link}
-                                    className="px-2 md:px-7 py-3 text-sm md:text-base font-medium text-dark hover:text-primary dark:text-white"
+                                    className="px-2 lg:px-6 py-6 text-md border-b-2 border-transparent hover:border-indigo-400 leading-[22px] md:px-3 text-gray-400 hover:text-indigo-500"
                                 >
                                     {item.title}
                                 </Link>
                             ))}
-                        </div>
-                    </div>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </header>
