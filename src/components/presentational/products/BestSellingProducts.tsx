@@ -28,20 +28,23 @@ export const BestSellingProducts: React.FC<Props> = ({ products }) => {
                 <div className="px-4 py-8 md:px-6 md:py-12 lg:px-20">
                     <h1 className="text-center text-3xl font-semibold text-gray-800 lg:text-4xl">Our Best Selling Collection</h1>
 
-                    {mappedProducts.map((group, index) => (
-                        <div key={index} className={`mt-8 grid grid-cols-1 gap-6 md:mt-10 md:grid-cols-${group.length} lg:gap-8`}>
-                            {group.map((product) => (
-                                <div key={product.id} onClick={() => handleNavigate(product.id)} className="bg-slate-50 p-8 cursor-pointer">
-                                    <div className="">
-                                        <h2 className="text-xl text-gray-600">{product.title}</h2>
+                    {mappedProducts.map((group, index) => {
+                        const grid = group.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'
+                        return (
+                            <div key={index} className={`mt-8 grid grid-cols-1 gap-6 md:mt-10 ${grid} lg:gap-8`}>
+                                {group.map((product) => (
+                                    <div key={product.id} onClick={() => handleNavigate(product.id)} className="bg-slate-50 p-8 cursor-pointer">
+                                        <div className="">
+                                            <h2 className="text-xl text-gray-600">{product.title}</h2>
+                                        </div>
+                                        <div className="mt-8 flex items-center justify-center md:mt-24">
+                                            <img className="" src={product.images[0]} alt="" />
+                                        </div>
                                     </div>
-                                    <div className="mt-8 flex items-center justify-center md:mt-24">
-                                        <img className="" src={product.images[0]} alt="" />
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    ))}
+                                ))}
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         </section>
