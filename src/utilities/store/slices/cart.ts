@@ -8,7 +8,7 @@ interface CartState {
 export const addItemToCart = createAction<IProduct>('cart/addItemToCart')
 export const clearCart = createAction<void>('cart/clearCart')
 
-const initialState = { items: [] } as CartState;
+export const initialState = { items: [] } as CartState;
 
 const cartReducer = createReducer(initialState, (builder) => {
     builder

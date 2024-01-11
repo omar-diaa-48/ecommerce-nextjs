@@ -1,7 +1,7 @@
 'use client'
 
 import { Fab } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useAppDispatch, useAppSelector } from '@/utilities/store/hooks';
 import { RootState } from '@/utilities/store';
@@ -18,9 +18,15 @@ function CartIcon() {
         animate: { opacity: 1, y: 0, transition: { duration: 1 } }
     })
 
+    const [itemsCount, setItemsCount] = useState(0)
+
     const handleClearCart = () => {
         dispatch(clearCart())
     }
+
+    useEffect(() => {
+        setItemsCount(items.length)
+    }, [items])
 
     return (
         <Fab
@@ -31,18 +37,18 @@ function CartIcon() {
             }}
             className='bg-teal-500 hover:bg-teal-700'
         >
-            {items.length > 0 && (
+            {itemsCount > 0 && (
                 <AnimatePresence>
                     <motion.div
                         className='absolute flex justify-center items-center w-6 h-6 rounded-full bg-teal-900 -left-2 -top-2'
                         {...animations}
                     >
-                        <p title={`${items.length} items in cart`} className='text-white'>{items.length}</p>
+                        <p title={`${itemsCount} items in cart`} className='text-white'>{itemsCount}</p>
                     </motion.div>
                 </AnimatePresence>
             )}
             <ShoppingCartIcon className='text-white' />
-            {items.length > 0 && (
+            {itemsCount > 0 && (
                 <AnimatePresence>
                     <motion.div
                         title='Clear cart'

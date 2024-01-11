@@ -12,6 +12,10 @@ export default function StoreProvider({
     const storeRef = useRef<AppStore>()
     if (!storeRef.current) {
         storeRef.current = makeStore()
+
+        storeRef.current.subscribe(() => {
+            localStorage.setItem('reduxState', JSON.stringify(storeRef.current?.getState()))
+        })
     }
 
     return (
