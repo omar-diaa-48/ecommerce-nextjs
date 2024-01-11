@@ -49,10 +49,13 @@ const Hero = () => {
                     >
                         <div className="lg:ml-auto lg:text-right">
                             <div className="relative z-10 inline-block pt-11 lg:pt-0">
-                                <img
+                                <Image
                                     src="https://static01.nyt.com/images/2023/06/16/multimedia/16OPEN-THREAD2-tcvw/16OPEN-THREAD2-tcvw-videoSixteenByNine3000.jpg"
                                     alt="hero"
-                                    className="max-w-full lg:ml-auto"
+                                    className="max-w-full w-full h-auto lg:ml-auto"
+                                    width="0"
+                                    height="0"
+                                    sizes="100vw"
                                 />
                                 <span className="absolute -bottom-8 -left-8 z-[-1]">
                                     <svg

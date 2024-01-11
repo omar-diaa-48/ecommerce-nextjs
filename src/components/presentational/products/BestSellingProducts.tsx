@@ -39,7 +39,7 @@ export const BestSellingProducts: React.FC<Props> = ({ products }) => {
                                             <h2 className="text-xl text-gray-600">{product.title}</h2>
                                         </div>
                                         <div className="mt-8 flex relative overflow-hidden min-h-80 min-w-[30%] items-center justify-center md:mt-24">
-                                            <Image  fill src={product.images[0]} alt="" />
+                                            <Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" fill src={product.images[0]} alt="" />
                                         </div>
                                     </div>
                                 ))}
