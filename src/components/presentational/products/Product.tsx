@@ -54,7 +54,7 @@ export const Product: React.FC<Props> = ({ product }) => {
     }
 
     return (
-        <div className="py-8">
+        <div className="pt-48">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row">
                     <div className="md:flex-1 px-4">
