@@ -1,7 +1,7 @@
 "use client"
 import Button from "@/components/handlers/Button";
 import TextFieldInput from "@/components/handlers/TextFieldInput";
-import AuthContainer from "@/components/presentational/AuthContainer";
+import AuthContainer from "@/components/presentational/auth/AuthContainer";
 import { ISignInForm } from "@/utilities/interfaces/auth.interface";
 import schema from "@/utilities/schemas/sign-in";
 import { yupResolver } from "@hookform/resolvers/yup";

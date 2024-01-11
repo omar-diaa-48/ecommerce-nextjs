@@ -2,7 +2,7 @@
 import Button from "@/components/handlers/Button";
 import DateInput from "@/components/handlers/DateInput";
 import TextFieldInput from "@/components/handlers/TextFieldInput";
-import AuthContainer from "@/components/presentational/AuthContainer";
+import AuthContainer from "@/components/presentational/auth/AuthContainer";
 import { ISignUpForm } from "@/utilities/interfaces/auth.interface";
 import schema from "@/utilities/schemas/sign-up";
 import { yupResolver } from "@hookform/resolvers/yup";
