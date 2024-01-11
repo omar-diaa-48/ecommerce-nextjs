@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import 'nprogress/nprogress.css';
-import Header from '@/components/presentational/Header'
-import CartIcon from '@/components/presentational/CartIcon'
+import Header from '@/components/presentational/shared/Header'
+import CartIcon from '@/components/presentational/shared/CartIcon'
 import StoreProvider from './StoreProvider';
 
 const inter = Inter({ subsets: ['latin'] })
